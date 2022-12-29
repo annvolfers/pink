@@ -1,0 +1,54 @@
+@use "./global/variables";
+@use "./global/base";
+
+.tariffs {
+  padding: 131px 0 39px;
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 105px 0 33px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 157px 0 64px;
+  }
+}
+
+.tariffs__wrapper {
+  @media (min-width: variables.$tablet-width) {
+    @include base.center;
+
+    width: calc(100% - 40px);
+    max-width: variables.$max-width-tablet - 40px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    @include base.center;
+
+    width: calc(100% - 260px);
+    max-width: variables.$max-width-desktop - 260px;
+  }
+}
+
+.tariffs__table-wrapper {
+  position: relative;
+  margin-bottom: 33px;
+  overflow-x: hidden;
+
+  @media (min-width: variables.$tablet-width) {
+    overflow-x: auto;
+  }
+}
+
+.tariffs__table {
+  margin: 0 20px;
+
+  @media (min-width: variables.$tablet-width) {
+    margin: 0 auto;
+  }
+}
+
+.tariffs .tariffs__togglers {
+  @media (min-width: variables.$tablet-width) {
+    display: none;
+  }
+}

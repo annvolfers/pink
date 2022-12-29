@@ -1,0 +1,82 @@
+@use "./global/variables";
+@use "./global/base";
+
+.announce {
+  @media (min-width: variables.$desktop-width) {
+    background-color: variables.$white--light;
+  }
+}
+
+.announce__wrapper {
+  min-height: 330px;
+  padding: 96px 20px 22px 330px;
+  background-image: url("../img/index/timer.svg");
+  background-repeat: no-repeat;
+  background-size: 238px 276px;
+  background-position: 20px 54px;
+
+  @include base.container-tablet;
+
+  @media (min-width: variables.$desktop-width) {
+    @include base.container-desktop;
+
+    min-height: 420px;
+    padding: 103px 130px 112px 500px;
+    background-size: 298px 345px;
+    background-position: 130px 8px;
+  }
+}
+
+.announce__title {
+  margin: 0;
+  margin-bottom: 10px;
+  padding-right: 15px;
+  font-size: 30px;
+  line-height: 36px;
+
+  @media (min-width: variables.$desktop-width) {
+    margin-bottom: 25px;
+    line-height: 30px;
+  }
+}
+
+.announce__text {
+  margin: 0;
+  margin-bottom: 10px;
+  color: variables.$blue--darken;
+
+  @media (min-width: variables.$desktop-width) {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+.announce__link {
+  color: variables.$pink;
+
+  &:hover {
+    @media (hover: hover) {
+      color: variables.$blue--darken;
+      text-decoration: none;
+      outline: none;
+    }
+  }
+
+  &:focus-visible {
+    color: variables.$blue--darken;
+    text-decoration: none;
+    outline: 2px solid variables.$pink;
+    outline-offset: 4px;
+  }
+
+  &:active {
+    text-decoration: underline;
+    opacity: 0.3;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}

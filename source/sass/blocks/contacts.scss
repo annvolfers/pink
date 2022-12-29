@@ -1,0 +1,193 @@
+@use "./global/variables.scss";
+@use "./global/base.scss";
+
+.contacts__wrapper {
+  padding: 41px 40px 35px;
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 44px 40px 23px;
+
+    @include base.container-tablet;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 59px 130px 20px;
+
+    @include base.container-desktop;
+  }
+}
+
+.contacts__text {
+  margin: 0;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: variables.$blue--darken;
+
+  &:last-of-type {
+    margin-bottom: 34px;
+
+    @media (min-width: variables.$desktop-width) {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    font-size: 40px;
+    line-height: 54px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    font-size: 50px;
+    line-height: 68px;
+  }
+}
+
+.contacts__list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+
+  @media (min-width: variables.$tablet-width) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 46px 10%;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    gap: 46px 8%;
+  }
+}
+
+.contacts__item {
+  @media (min-width: variables.$tablet-width) {
+    flex-basis: 45%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    flex-basis: 26%;
+  }
+
+  &:nth-child(2) {
+    @media (min-width: variables.$desktop-width) {
+      order: 2;
+    }
+  }
+}
+
+.contacts__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: variables.$blue--darken;
+
+  @media (min-width: variables.$desktop-width) {
+    margin-bottom: 20px;
+  }
+}
+
+.contacts__description {
+  margin: 0;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+  color: variables.$pink;
+}
+
+.contacts__link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    @media (hover: hover) {
+      text-decoration: underline;
+      color: variables.$blue--darken;
+    }
+  }
+
+  &:focus-visible {
+    text-decoration: underline;
+    color: variables.$blue--darken;
+    outline: 2px solid variables.$pink;
+    outline-offset: 4px;
+  }
+
+  &:active {
+    text-decoration: none;
+    opacity: 0.3;
+  }
+}
+
+.contacts__map {
+  position: relative;
+  height: 200px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 401;
+    height: 33px;
+    background-color: variables.$white--lighten;
+    clip-path: polygon(50% 33px, 0 0, 100% 0);
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    height: 374px;
+
+    &::before {
+      height: 68px;
+      clip-path: polygon(50% 68px, 0 0, 100% 0);
+    }
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    height: 502px;
+
+    &::before {
+      height: 103px;
+      clip-path: polygon(50% 103px, 0 0, 100% 0);
+    }
+  }
+
+  &--nojs {
+    height: 0;
+    padding-bottom: 62.5%;
+    background-color: variables.$white--lighten;
+    background-image: image-set(url("../img/index/map-mobile@2x.webp") 2x,
+        url("../img/index/map-mobile.webp") 1x,
+        url("../img/index/map-mobile@2x.png") 2x,
+        url("../img/index/map-mobile.png") 1x,
+      );
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (min-width: variables.$tablet-width) {
+      padding-bottom: 56.7%;
+      background-image: image-set(url("../img/index/map-tablet@2x.webp") 2x,
+          url("../img/index/map-tablet.webp") 1x,
+          url("../img/index/map-tablet@2x.png") 2x,
+          url("../img/index/map-tablet.png") 1x,
+        );
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      padding-bottom: 41.8%;
+      background-image: image-set(url("../img/index/map-desktop@2x.webp") 2x,
+          url("../img/index/map-desktop.webp") 1x,
+          url("../img/index/map-desktop@2x.png") 2x,
+          url("../img/index/map-desktop.png") 1x,
+        );
+    }
+  }
+}

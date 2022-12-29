@@ -1,0 +1,92 @@
+@use "./global/variables";
+
+.reviews {
+  @media (min-width: variables.$desktop-width) {
+    display: flex;
+    justify-content: center;
+    padding: 165px 116px 2px;
+    background-image: url("../img/index/quotes.svg");
+    background-repeat: no-repeat;
+    background-size: 79px 63px;
+    background-position: 50% 72px;
+  }
+}
+
+.reviews__wrapper {
+  overflow: hidden;
+}
+
+.reviews__list {
+  display: flex;
+
+  --slides: 3;
+  width: calc(100% * var(--slides));
+
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  --transform: translateX(0%);
+  transform: var(--transform);
+  transition: transform 0.3s;
+}
+
+.reviews__item {
+  width: 100%;
+}
+
+.reviews .reviews__togglers {
+  @media (min-width: variables.$desktop-width) {
+    display: none;
+  }
+}
+
+.reviews__button {
+  display: none;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  margin-top: 44px;
+  padding: 0;
+  background-color: transparent;
+  background-image: url("../img/index/slider-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  opacity: 0.3;
+  cursor: pointer;
+
+  &--prev {
+    order: -1;
+  }
+
+  &--next {
+    order: 1;
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    @media (hover: hover) {
+      opacity: 0.6;
+    }
+  }
+
+  &:focus-visible {
+    opacity: 0.6;
+    outline: 2px solid variables.$pink;
+    outline-offset: 4px;
+  }
+
+  &:active {
+    opacity: 0.1;
+  }
+
+  &:disabled {
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    display: block;
+  }
+}

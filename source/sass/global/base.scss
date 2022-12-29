@@ -1,0 +1,49 @@
+@use "./global/variables.scss";
+
+@mixin container-tablet {
+  max-width: variables.$max-width-tablet;
+
+  @include center;
+}
+
+@mixin container-desktop {
+  max-width: variables.$max-width-desktop;
+
+  @include center;
+}
+
+@mixin center {
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:not([href]) {
+  pointer-events: none;
+}

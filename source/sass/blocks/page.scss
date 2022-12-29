@@ -1,0 +1,32 @@
+@use "./global/variables";
+@use "./global/base";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: variables.$black;
+  background-color: variables.$white--lighten;
+}
+
+.page__main {
+  flex-grow: 1;
+}
+
+.page__footer {
+  @media (min-width: variables.$tablet-width) {
+    width: 100%;
+
+    @include base.container-tablet;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    @include base.container-desktop;
+  }
+}

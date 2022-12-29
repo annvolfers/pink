@@ -1,0 +1,123 @@
+@use "./global/variables.scss";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 70px 40px;
+
+  @media (min-width: variables.$tablet-width) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 20px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 70px 130px 72px;
+  }
+}
+
+.footer__logo-link {
+  display: inline-block;
+
+  &:focus-visible {
+    outline: 2px solid variables.$pink;
+    outline-offset: 4px;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    padding-bottom: 7px;
+  }
+}
+
+.footer__logo {
+  --textColor: #283645;
+  --glassesColor: #d22856;
+  --glassesVibsibility: block;
+  --starsVibsibility: none;
+  --starsOnGlassesColor: #283645;
+  --starOverTextColor: #d22856;
+  --textTransformX: 71px;
+  --textTransformY: 17px;
+
+  width: 145px;
+  height: 40px;
+
+  @media (min-width: variables.$desktop-width) {
+    --glassesVibsibility: none;
+    --starsVibsibility: block;
+    --textTransformX: 73px;
+
+    width: 147px;
+  }
+}
+
+.footer__logo-link:hover .footer__logo {
+  @media (hover: hover) {
+    --textColor: #d22856;
+  }
+}
+
+.footer__logo-link:focus-visible .footer__logo {
+  --textColor: #d22856;
+}
+
+.footer__logo-link:active .footer__logo {
+  --textColor: #283645;
+  opacity: 0.3;
+}
+
+.footer__social {
+  margin-bottom: 5px;
+
+  @media (min-width: variables.$tablet-width) {
+    margin-bottom: 0;
+    margin-right: 12px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    margin-right: 0;
+    margin-left: 9px;
+  }
+}
+
+.footer__copyright-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  line-height: 18px;
+  color: variables.$blue--darken;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid variables.$pink;
+    outline-offset: 4px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    font-size: 18px;
+  }
+}
+
+.footer__copyright-logo {
+  flex-shrink: 0;
+  width: 27px;
+  height: 34px;
+  color: variables.$pink;
+}
+
+.footer__copyright-link:hover .footer__copyright-logo {
+  @media (hover: hover) {
+    color: variables.$blue--darken;
+  }
+}
+
+.footer__copyright-link:focus-visible .footer__copyright-logo {
+  color: variables.$blue--darken;
+}
+
+.footer__copyright-link:active .footer__copyright-logo {
+  opacity: 0.3;
+}

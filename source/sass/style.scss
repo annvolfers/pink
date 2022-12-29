@@ -1,0 +1,22 @@
+/* global */
+@use "./global/fonts.scss";
+@use "./global/base.scss";
+
+/* blocks */
+@use "./blocks/announce.scss";
+@use "./blocks/apps.scss";
+@use "./blocks/button.scss";
+@use "./blocks/contacts.scss";
+@use "./blocks/features.scss";
+@use "./blocks/footer.scss";
+@use "./blocks/header-bottom.scss";
+@use "./blocks/header-top.scss";
+@use "./blocks/header.scss";
+@use "./blocks/page-main.scss";
+@use "./blocks/page.scss";
+@use "./blocks/review.scss";
+@use "./blocks/reviews.scss";
+@use "./blocks/social.scss";
+@use "./blocks/tariff-table.scss";
+@use "./blocks/tariffs.scss";
+@use "./blocks/togglers.scss";

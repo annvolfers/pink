@@ -1,0 +1,30 @@
+@use "./global/variables";
+@use "./global/base";
+
+.page-main__announce {
+  @media (max-width: variables.$mobile-width-only) {
+    display: none;
+  }
+}
+
+.page-main__wrapper {
+  background-image: linear-gradient(357deg, variables.$white--light 57%, variables.$white--lighten 57%, variables.$white--lighten 100%);
+
+  @media (min-width: variables.$tablet-width) {
+    background-image: linear-gradient(356.5deg, variables.$white--light 50%, variables.$white--lighten 50%, variables.$white--lighten 100%);
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    background-image: linear-gradient(355deg, variables.$white--light 51.5%, variables.$white--lighten 51.5%, variables.$white--lighten 100%);
+  }
+}
+
+.page-main__reviews {
+  @media (min-width: variables.$tablet-width) {
+    @include base.container-tablet;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    @include base.container-desktop;
+  }
+}

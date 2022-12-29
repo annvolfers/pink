@@ -1,0 +1,64 @@
+@use "./global/variables";
+
+.togglers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.togglers__control {
+  display: block;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    margin: auto;
+    background-color: variables.$blue--darken;
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+
+  &--current {
+    pointer-events: none;
+
+    &::before {
+      background-color: variables.$white--lighten;
+      border: 3px solid variables.$blue--darken;
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    &::before {
+      @media (hover: hover) {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid variables.$pink;
+
+    &::before {
+      opacity: 0.6;
+    }
+  }
+
+  &:active {
+    &::before {
+      opacity: 0.1;
+    }
+  }
+}
