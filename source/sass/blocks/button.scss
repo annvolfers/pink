@@ -13,13 +13,18 @@
   border: 3px solid variables.$white--lighten;
   border-radius: 29px;
   background-color: transparent;
+  cursor: pointer;
 
-  &:hover {
-    @media (hover: hover) {
-      color: variables.$pink;
-      background-color: variables.$white--lighten;
-      outline: none;
-    }
+  &:hover,
+  &:focus {
+    color: variables.$pink;
+    background-color: variables.$white--lighten;
+  }
+
+  //стили для тач-устройств после клика
+  &:focus:hover:not(:active) {
+    color: variables.$white--lighten;
+    background-color: transparent;
   }
 
   &:focus-visible {

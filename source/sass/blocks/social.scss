@@ -42,10 +42,13 @@
     background-size: 15px 13px;
   }
 
-  &:hover {
-    @media (hover: hover) {
-      border-color: variables.$blue--darken;
-    }
+  &:hover,
+  &:focus {
+    border-color: variables.$blue--darken;
+  }
+
+  &:focus:hover:not(:active) {
+    border-color: rgba(variables.$blue--darken, 0.1);
   }
 
   &:focus-visible {

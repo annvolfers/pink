@@ -65,10 +65,13 @@
     transform: rotate(180deg);
   }
 
-  &:hover {
-    @media (hover: hover) {
-      opacity: 0.6;
-    }
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+
+  &:focus:hover:not(:active) {
+    opacity: 0.3;
   }
 
   &:focus-visible {

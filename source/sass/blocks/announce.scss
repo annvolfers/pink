@@ -55,12 +55,15 @@
 .announce__link {
   color: variables.$pink;
 
-  &:hover {
-    @media (hover: hover) {
-      color: variables.$blue--darken;
-      text-decoration: none;
-      outline: none;
-    }
+  &:hover,
+  &:focus {
+    color: variables.$blue--darken;
+    text-decoration: none;
+  }
+
+  &:focus:hover:not(:active) {
+    color: variables.$pink;
+    text-decoration: underline;
   }
 
   &:focus-visible {

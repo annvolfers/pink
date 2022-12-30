@@ -107,11 +107,15 @@
   }
 }
 
-.header-top__logo-link:hover .header-top__logo {
-  @media (hover: hover) {
-    --textColor: #d22856;
-    --glassesColor: #d22856;
-  }
+.header-top__logo-link:hover .header-top__logo,
+.header-top__logo-link:focus .header-top__logo {
+  --textColor: #d22856;
+  --glassesColor: #d22856;
+}
+
+.header-top__logo-link:focus:hover:not(:active) .header-top__logo {
+  --textColor: #ffffff;
+  --glassesColor: #ffffff;
 }
 
 .header-top__logo-link:focus-visible .header-top__logo {
@@ -166,12 +170,17 @@
   }
 }
 
-.header-top__nav--mobile-menu-closed .header-top__toggle:hover::before {
-  @media (hover: hover) {
-    background-color: variables.$pink;
-    box-shadow: 0 8px 0 0 variables.$pink,
-      0 -8px 0 0 variables.$pink;
-  }
+.header-top__nav--mobile-menu-closed .header-top__toggle:hover::before,
+.header-top__nav--mobile-menu-closed .header-top__toggle:focus::before {
+  background-color: variables.$pink;
+  box-shadow: 0 8px 0 0 variables.$pink,
+    0 -8px 0 0 variables.$pink;
+}
+
+.header-top__nav--mobile-menu-closed .header-top__toggle:focus:hover:not(:active)::before {
+  background-color: variables.$white--lighten;
+  box-shadow: 0 8px 0 0 variables.$white--lighten,
+    0 -8px 0 0 variables.$white--lighten;
 }
 
 .header-top__nav--mobile-menu-closed .header-top__toggle:focus-visible::before {
@@ -208,10 +217,15 @@
 }
 
 .header-top__nav--mobile-menu-opened .header-top__toggle:hover::before,
-.header-top__nav--mobile-menu-opened .header-top__toggle:hover::after {
-  @media (hover: hover) {
-    background-color: variables.$pink;
-  }
+.header-top__nav--mobile-menu-opened .header-top__toggle:hover::after,
+.header-top__nav--mobile-menu-opened .header-top__toggle:focus::before,
+.header-top__nav--mobile-menu-opened .header-top__toggle:focus::after {
+  background-color: variables.$pink;
+}
+
+.header-top__nav--mobile-menu-opened .header-top__toggle:focus:hover:not(:active)::before,
+.header-top__nav--mobile-menu-opened .header-top__toggle:focus:hover:not(:active)::after {
+  background-color: variables.$white--lighten;
 }
 
 .header-top__nav--mobile-menu-opened .header-top__toggle:focus-visible::before,
@@ -284,10 +298,13 @@
         background-color: variables.$white--lighten;
       }
 
-      &:hover::after {
-        @media (hover: hover) {
-          background-color: variables.$pink;
-        }
+      &:hover::after,
+      &:focus::after {
+        background-color: variables.$pink;
+      }
+
+      &:focus:hover:not(:active) {
+        background-color: variables.$white--lighten;
       }
 
       &:focus-visible::after {
@@ -300,10 +317,13 @@
     }
   }
 
-  &:hover {
-    @media (hover: hover) {
-      color: variables.$pink;
-    }
+  &:hover,
+  &:focus {
+    color: variables.$pink;
+  }
+
+  &:focus:hover:not(:active) {
+    color: variables.$white--lighten;
   }
 
   &:focus-visible {
