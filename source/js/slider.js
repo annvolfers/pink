@@ -66,11 +66,7 @@ class Slider {
   }
 
   setNewSlide(prevSlide, nextSlide) {
-    if (this.slidesNumber > 1) {
-      this.sliderElement.style.setProperty('--transform', `translateX(-${this.step * nextSlide}%)`);
-    } else {
-      this.sliderElement.style.setProperty('--transform', 'translateX(0%)');
-    }
+    this.sliderElement.style.setProperty('--transform', `translateX(-${this.step * nextSlide}%)`);
 
     this.sliderTogglers[prevSlide].classList.remove('togglers__control--current');
     this.sliderTogglers[nextSlide].classList.add('togglers__control--current');
