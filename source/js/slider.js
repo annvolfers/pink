@@ -23,7 +23,7 @@ class Slider {
 
     for (let i = 0; i < this.sliderTogglers.length; i++) {
       if (this.sliderTogglers[i].classList.contains('togglers__control--current')) {
-        this.activeSlide = i;
+        this.activeSlideIndex = i;
       }
     }
 
@@ -33,7 +33,7 @@ class Slider {
   setListeners() {
     for (let i = 0; i < this.sliderTogglers.length; i++) {
       this.sliderTogglers[i].addEventListener('click', () => {
-        this.setNewSlide(this.activeSlide, i);
+        this.setNewSlide(this.activeSlideIndex, i);
       });
     }
 
@@ -46,6 +46,7 @@ class Slider {
     }
 
     if (isMobile) {
+      const minTouchMoveDistance = 30;
       let touchstartPosition;
       let touchendPosition;
 
@@ -56,10 +57,12 @@ class Slider {
       this.sliderElement.addEventListener('touchend', (evt) => {
         touchendPosition = evt.changedTouches[0].clientX;
 
-        if (touchendPosition > touchstartPosition) {
-          this.setPreviousSlide();
-        } else {
-          this.setNextSlide();
+        if (Math.abs(touchendPosition - touchstartPosition) > minTouchMoveDistance) {
+          if (touchendPosition > touchstartPosition) {
+            this.setPreviousSlide();
+          } else {
+            this.setNextSlide();
+          }
         }
       });
     }
@@ -71,43 +74,45 @@ class Slider {
     this.sliderTogglers[prevSlide].classList.remove('togglers__control--current');
     this.sliderTogglers[nextSlide].classList.add('togglers__control--current');
 
-    this.activeSlide = nextSlide;
+    this.activeSlideIndex = nextSlide;
 
     this.setButtonsAvailability();
   }
 
   setPreviousSlide() {
-    if (this.activeSlide > 0) {
-      this.setNewSlide(this.activeSlide, this.activeSlide - 1);
+    if (this.activeSlideIndex > 0) {
+      this.setNewSlide(this.activeSlideIndex, this.activeSlideIndex - 1);
     }
   }
 
   setNextSlide() {
-    if (this.activeSlide < this.slidesNumber - 1) {
-      this.setNewSlide(this.activeSlide, this.activeSlide + 1);
+    if (this.activeSlideIndex < this.slidesNumber - 1) {
+      this.setNewSlide(this.activeSlideIndex, this.activeSlideIndex + 1);
     }
   }
 
   setButtonsAvailability(availability = true) {
-    if (this.sliderButtonPrev && this.sliderButtonNext) {
-      if (!availability) {
-        this.sliderButtonPrev.disabled = true;
-        this.sliderButtonNext.disabled = true;
-        return;
-      }
+    if (!this.sliderButtonPrev || !this.sliderButtonNext) {
+      return;
+    }
 
-      switch (this.activeSlide) {
-        case 0:
-          this.sliderButtonPrev.disabled = true;
-          break;
-        case this.slidesNumber - 1:
-          this.sliderButtonNext.disabled = true;
-          break;
-        default:
-          this.sliderButtonPrev.disabled = false;
-          this.sliderButtonNext.disabled = false;
-          break;
-      }
+    if (!availability) {
+      this.sliderButtonPrev.disabled = true;
+      this.sliderButtonNext.disabled = true;
+      return;
+    }
+
+    switch (this.activeSlideIndex) {
+      case 0:
+        this.sliderButtonPrev.disabled = true;
+        break;
+      case this.slidesNumber - 1:
+        this.sliderButtonNext.disabled = true;
+        break;
+      default:
+        this.sliderButtonPrev.disabled = false;
+        this.sliderButtonNext.disabled = false;
+        break;
     }
   }
 }
