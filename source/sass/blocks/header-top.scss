@@ -107,8 +107,7 @@
   }
 }
 
-.header-top__logo-link:hover .header-top__logo,
-.header-top__logo-link:focus .header-top__logo {
+.header-top__logo-link:hover .header-top__logo {
   --textColor: #d22856;
   --glassesColor: #d22856;
 }
@@ -116,11 +115,6 @@
 .header-top__logo-link:focus:hover:not(:active) .header-top__logo {
   --textColor: #ffffff;
   --glassesColor: #ffffff;
-}
-
-.header-top__logo-link:focus-visible .header-top__logo {
-  --textColor: #d22856;
-  --glassesColor: #d22856;
 }
 
 .header-top__logo-link:active .header-top__logo {
