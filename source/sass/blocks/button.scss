@@ -1,49 +1,19 @@
 @use "./global/variables.scss";
 
 .button {
-  display: inline-block;
+  display: block;
   padding: 15px;
   box-sizing: border-box;
+  font-family: inherit;
   font-weight: 700;
-  font-size: 18px;
   line-height: 18px;
-  color: variables.$white--lighten;
   text-decoration: none;
   text-align: center;
-  border: 3px solid variables.$white--lighten;
-  border-radius: 29px;
   background-color: transparent;
   cursor: pointer;
 
-  &:hover,
-  &:focus {
-    color: variables.$pink;
-    background-color: variables.$white--lighten;
-  }
-
-  //стили для тач-устройств после клика
-  &:focus:hover:not(:active) {
-    color: variables.$white--lighten;
-    background-color: transparent;
-  }
-
   &:focus-visible {
-    color: variables.$pink;
-    background-color: variables.$white--lighten;
     outline: 2px solid variables.$pink;
     outline-offset: 4px;
   }
-
-  &:active {
-    color: rgba(variables.$pink, 0.3);
-  }
-
-  // @media (min-width: variables.$tablet-width) {}
-
-  @media (min-width: variables.$desktop-width) {
-    padding: 17px;
-    font-size: 21px;
-  }
-
-  // &--form {}
 }

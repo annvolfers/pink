@@ -1,0 +1,429 @@
+@use "./global/variables";
+@use "./global/base";
+
+.add-photo__title {
+  margin: 0;
+  padding: 41px 20px 42px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  color: variables.$blue--darken;
+
+  @media (min-width: variables.$tablet-width) {
+    font-size: 18px;
+    padding: 64px 50px 70px;
+
+    @include base.container-tablet;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 57px 130px 67px;
+
+    @include base.container-desktop;
+  }
+}
+
+.add-photo__form-wrapper {
+  background-color: variables.$white--light;
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 0 130px 29px;
+    background-color: transparent;
+
+    @include base.container-desktop;
+  }
+}
+
+.add-photo__form {
+  padding: 20px 20px 43px;
+
+  @media (min-width: variables.$tablet-width) {
+    display: grid;
+    grid-template-areas: "photo filters"
+      "photo submit"
+      "photo reset";
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr min-content min-content;
+    align-items: flex-start;
+    gap: 26px 33px;
+    padding: 42px 20px 54px;
+  }
+
+  @media (min-width: variables.$tablet-width) and (max-width: variables.$tablet-width-only) {
+    @include base.container-tablet;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    grid-template-areas: "photo filters filters"
+      "photo submit reset";
+    grid-template-columns: 346px 1fr 1fr;
+    grid-template-rows: 1fr min-content;
+    gap: 26px 44px;
+    padding: 42px 60px 57px 80px;
+    background-color: variables.$white--light;
+  }
+}
+
+.add-photo__new-photo {
+  display: flex;
+  width: 280px;
+  height: 374px;
+  margin: 0 auto 43px;
+
+  @media (min-width: variables.$tablet-width) {
+    grid-area: photo;
+    width: 300px;
+    height: 400px;
+    margin: 0;
+    margin-top: 15px;
+  }
+}
+
+.add-photo__photo-input:focus + .add-photo__photo-chooser {
+  outline: 2px solid variables.$pink;
+  outline-offset: 4px;
+}
+
+.add-photo__photo-chooser {
+  --size: 100%;
+  --saturation: 1;
+  --contrast: 1;
+
+  position: relative;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  margin: auto;
+  background-image: image-set(url("../img/photos/new-photo-mobile@2x.webp") 2x,
+      url("../img/photos/new-photo-mobile.webp") 1x,
+      url("../img/photos/new-photo-mobile@2x.jpg") 2x,
+      url("../img/photos/new-photo-mobile.jpg") 1x);
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: #{"saturate(var(--saturation))"} contrast(var(--contrast));
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    background-image: image-set(url("../img/photos/new-photo-tablet@2x.webp") 2x,
+        url("../img/photos/new-photo-tablet.webp") 1x,
+        url("../img/photos/new-photo-tablet@2x.jpg") 2x,
+        url("../img/photos/new-photo-tablet.jpg") 1x);
+  }
+}
+
+.add-photo__filters {
+  position: relative;
+  margin: 0 0 38px;
+  padding: 0 12px 68px 0;
+  border: none;
+
+  &::after {
+    @media (max-width: variables.$mobile-width-only) {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -20px;
+      right: -20px;
+      height: 1px;
+      background-color: variables.$blue--darken;
+      opacity: 0.1;
+    }
+  }
+
+  @media (max-width: variables.$mobile-width-only) {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    grid-area: filters;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: variables.$tablet-width) and (max-width: variables.$tablet-width-only) {
+    padding-left: 11px;
+  }
+}
+
+.add-photo__filter {
+  margin: 0;
+
+  @media (min-width: variables.$tablet-width) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 71px;
+    padding-right: 16px;
+    border-bottom: 1px solid rgba(variables.$blue--darken, 0.1);
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding-right: 28px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.add-photo__filter-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    background-color: variables.$blue--darken;
+    opacity: 0.3;
+
+    @media (min-width: variables.$tablet-width) {
+      margin: auto;
+      background-color: variables.$pink;
+      opacity: 1;
+    }
+  }
+
+  &--crop::before {
+    width: 44px;
+    height: 44px;
+    mask-image: url("../img/sprite.svg#crop");
+
+    @media (min-width: variables.$tablet-width) and (max-width: variables.$tablet-width-only) {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &--saturation::before {
+    width: 48px;
+    height: 43px;
+    mask-image: url("../img/sprite.svg#fill");
+
+    @media (min-width: variables.$tablet-width) and (max-width: variables.$tablet-width-only) {
+      width: 24px;
+      height: 22px;
+    }
+  }
+
+  &--contrast::before {
+    width: 32px;
+    height: 32px;
+    mask-image: url("../img/sprite.svg#contrast");
+
+    @media (min-width: variables.$tablet-width) and (max-width: variables.$tablet-width-only) {
+      width: 16px;
+      height: 16px;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      margin: 0 6px;
+    }
+  }
+
+  &--active {
+    pointer-events: none;
+
+    &::before {
+      background-color: variables.$pink;
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0.5;
+    }
+  }
+
+  &:focus:hover:not(:active) {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid variables.$pink;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    &::before {
+      background-color: variables.$pink;
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    display: flex;
+    margin-right: 25px;
+    pointer-events: none;
+  }
+
+  @media (min-width: variables.$tablet-width) and (max-width: variables.$tablet-width-only) {
+    width: 30px;
+    height: 22px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    margin-right: 44px;
+  }
+}
+
+.add-photo__range {
+  display: block;
+  width: 85%;
+  max-width: 400px;
+  height: 16px;
+  background-color: transparent;
+  appearance: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid variables.$pink;
+    outline-offset: 2px;
+  }
+
+  &::-webkit-slider-runnable-track {
+    height: 2px;
+    background-color: variables.$blue--darken;
+  }
+
+  &::-moz-range-track {
+    height: 2px;
+    background-color: variables.$blue--darken;
+  }
+
+  &::-webkit-slider-thumb {
+    box-sizing: border-box;
+    width: 14px;
+    height: 14px;
+    background-color: variables.$white--lighten;
+    border: 2px solid variables.$pink;
+    border-radius: 50%;
+    appearance: none;
+    transform: translateY(-5px);
+    -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      background-color: variables.$pink;
+    }
+  }
+
+  &::-moz-range-thumb {
+    box-sizing: border-box;
+    width: 14px;
+    height: 14px;
+    background-color: variables.$white--lighten;
+    border: 2px solid variables.$pink;
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+
+    &:active {
+      background-color: variables.$pink;
+    }
+  }
+
+  @media (max-width: variables.$mobile-width-only) {
+    display: none;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    width: unset;
+    flex-grow: 1;
+  }
+}
+
+.add-photo__filter-button--active + .add-photo__range {
+  @media (max-width: variables.$mobile-width-only) {
+    display: block;
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.add-photo__button {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 18px;
+  border-radius: 30px;
+
+  @media (min-width: variables.$tablet-width) {
+    grid-area: submit;
+    width: 90%;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    width: 100%;
+  }
+
+  &--submit {
+    color: variables.$pink;
+    border: 3px solid variables.$pink;
+
+    &:hover {
+      color: variables.$white--lighten;
+      background-color: variables.$pink;
+    }
+
+    &:focus:hover:not(:active) {
+      color: variables.$pink;
+      background-color: transparent;
+    }
+
+    &:active {
+      color: rgba(variables.$white--lighten, 0.3);
+    }
+
+    @media (max-width: variables.$mobile-width-only) {
+      margin: 0 auto 12px;
+    }
+
+    @media (min-width: variables.$tablet-width) {
+      grid-area: submit;
+    }
+  }
+
+  &--reset {
+    color: rgba(variables.$blue--darken, 0.1);
+    border: 3px solid rgba(variables.$blue--darken, 0.1);
+
+    &:hover {
+      color: rgba(variables.$blue--darken, 0.3);
+      border-color: rgba(variables.$blue--darken, 0.3);
+    }
+
+    &:focus:hover:not(:active) {
+      color: rgba(variables.$blue--darken, 0.1);
+      border-color: rgba(variables.$blue--darken, 0.1);
+    }
+
+    &:active {
+      color: rgba(variables.$white--lighten, 0.3);
+      background-color: rgba(variables.$blue--darken, 0.3);
+      border-color: rgba(variables.$blue--darken, 0);
+    }
+
+    @media (min-width: variables.$tablet-width) {
+      grid-area: reset;
+    }
+  }
+}

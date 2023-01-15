@@ -1,0 +1,248 @@
+@use "./global/variables";
+
+.photo {
+  @media (min-width: variables.$tablet-width) {
+    display: grid;
+    grid-template-rows: auto minmax(155px, 1fr);
+    height: 100%;
+  }
+
+  &--panorama {
+    position: relative;
+
+    @media (min-width: variables.$tablet-width) {
+      grid-template-rows: unset;
+    }
+  }
+}
+
+.photo__label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: block;
+  max-width: 150px;
+  max-height: 100px;
+  margin: 0;
+  padding: 6px 20px 6px 19px;
+  box-sizing: border-box;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  color: variables.$white--lighten;
+  text-transform: uppercase;
+  background-color: variables.$pink;
+  overflow: auto;
+  pointer-events: none;
+
+  @media (min-width: variables.$tablet-width) {
+    top: 57px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    top: 54px;
+  }
+}
+
+.photo__image-link {
+  position: relative;
+  display: block;
+  min-height: 0;
+  padding-bottom: 64.4%;
+
+  &:focus-visible {
+    outline: 2px solid variables.$pink;
+    outline-offset: 2px;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    padding-bottom: 100%;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding-bottom: 133.3%;
+  }
+}
+
+.photo--panorama .photo__image-link {
+  --scrollWidth: 26px;
+
+  width: 100vw;
+  margin: 0 calc(-20px - var(--scrollWidth));
+  padding-bottom: 48.8%;
+
+  @media (min-width: variables.$tablet-width) {
+    padding-bottom: 82.1%;
+  }
+
+  @media (min-width: variables.$max-width-tablet) {
+    margin: 0 calc((100vw - 100% + var(--scrollWidth)) / (-2));
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    margin: 0 calc(-130px - var(--scrollWidth));
+    padding-bottom: 53.8%;
+  }
+
+  @media (min-width: variables.$max-width-desktop) {
+    margin: 0 calc((100vw - 100% + var(--scrollWidth)) / (-2));
+  }
+}
+
+.photo__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo__quote {
+  display: grid;
+  margin: 0;
+  padding: 18px 10px;
+  background-color: variables.$white--light;
+
+  @media (min-width: variables.$tablet-width) {
+    grid-template-rows: auto auto 1fr;
+    padding: 23px 23px 24px 30px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 24px 23px 26px 27px;
+  }
+}
+
+.photo--panorama .photo__quote {
+  @media (min-width: variables.$tablet-width) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 23px 23px 15px 30px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 24px 22px 13px 27px;
+  }
+}
+
+.photo__cite {
+  margin: 0;
+
+  @media (max-width: variables.$mobile-width-only) {
+    padding-left: 7px;
+  }
+}
+
+.photo__author {
+  font-style: normal;
+  font-weight: 700;
+  color: variables.$blue--darken;
+}
+
+.photo__time {
+  font-weight: 300;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: variables.$blue--darken;
+}
+
+.photo__description {
+  margin: 0;
+  margin-bottom: 9px;
+  color: variables.$blue--darken;
+
+  @media (max-width: variables.$mobile-width-only) {
+    padding-left: 7px;
+  }
+}
+
+.photo--panorama .photo__description {
+  @media (min-width: variables.$tablet-width) {
+    grid-column: 1 / -1;
+    order: 2;
+  }
+}
+
+.photo__description br {
+  @media (min-width: variables.$tablet-width) {
+    display: none;
+  }
+}
+
+.photo__like-wrapper {
+  display: flex;
+  gap: 11px;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  @media (min-width: variables.$tablet-width) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
+
+.photo--panorama .photo__like-wrapper {
+  @media (min-width: variables.$tablet-width) {
+    grid-column: 2 / 3;
+    justify-self: end;
+  }
+}
+
+.photo__like-button {
+  display: block;
+  flex-shrink: 0;
+  width: 27px;
+  height: 26px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 13px;
+    height: 12px;
+    margin: auto;
+    mask-image: url("../img/sprite.svg#heart");
+    mask-size: 13px 12px;
+    background-color: variables.$pink;
+  }
+
+  &:hover {
+    &::before {
+      background-color: variables.$black;
+    }
+  }
+
+  &:focus:hover:not(:active) {
+    &::before {
+      background-color: variables.$pink;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid variables.$pink;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    &::before {
+      mask-image: url("../img/sprite.svg#heart-filled");
+      background-color: variables.$pink;
+    }
+  }
+
+  &--active {
+    &::before {
+      mask-image: url("../img/sprite.svg#heart-filled");
+      background-color: variables.$pink;
+    }
+  }
+}
+
+.photo__like-text {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: variables.$pink;
+}

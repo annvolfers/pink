@@ -1,23 +1,34 @@
 @use "./global/variables.scss";
 
 .header {
+  background-color: variables.$blue--dark;
+  background-image: image-set(url("../img/header/back-mobile@2x.webp") 2x,
+      url("../img/header/back-mobile.webp") 1x,
+      url("../img/header/back-mobile@2x.jpg") 2x,
+      url("../img/header/back-mobile.jpg") 1x);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+
   @media (min-width: variables.$tablet-width) {
-    position: relative;
-    background-color: variables.$blue--dark;
-    background-image: image-set(url("../img/index/back-tablet@2x.webp") 2x,
-        url("../img/index/back-tablet.webp") 1x,
-        url("../img/index/back-tablet@2x.jpg") 2x,
-        url("../img/index/back-tablet.jpg") 1x);
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
+    background-image: image-set(url("../img/header/back-tablet@2x.webp") 2x,
+        url("../img/header/back-tablet.webp") 1x,
+        url("../img/header/back-tablet@2x.jpg") 2x,
+        url("../img/header/back-tablet.jpg") 1x);
   }
 
   @media (min-width: variables.$desktop-width) {
-    background-image: image-set(url("../img/index/back-desktop@2x.webp") 2x,
-        url("../img/index/back-desktop.webp") 1x,
-        url("../img/index/back-desktop@2x.jpg") 2x,
-        url("../img/index/back-desktop.jpg") 1x);
+    background-image: image-set(url("../img/header/back-desktop@2x.webp") 2x,
+        url("../img/header/back-desktop.webp") 1x,
+        url("../img/header/back-desktop@2x.jpg") 2x,
+        url("../img/header/back-desktop.jpg") 1x);
+  }
+
+  &--index {
+    @media (max-width: variables.$mobile-width-only) {
+      background-color: transparent;
+      background-image: none;
+    }
   }
 }
 

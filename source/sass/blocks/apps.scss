@@ -21,6 +21,25 @@
   width: 100%;
   max-width: 300px;
   margin: 0 auto 32px;
+  font-size: 18px;
+  color: variables.$white--lighten;
+  border: 3px solid variables.$white--lighten;
+  border-radius: 29px;
+
+  &:hover {
+    color: variables.$pink;
+    background-color: variables.$white--lighten;
+  }
+
+  //стили для тач-устройств после клика
+  &:focus:hover:not(:active) {
+    color: variables.$white--lighten;
+    background-color: transparent;
+  }
+
+  &:active {
+    color: rgba(variables.$pink, 0.3);
+  }
 
   @media (min-width: variables.$tablet-width) {
     margin-bottom: 43px;
@@ -28,6 +47,8 @@
 
   @media (min-width: variables.$desktop-width) {
     margin-bottom: 64px;
+    padding: 17px;
+    font-size: 21px;
   }
 }
 
@@ -58,8 +79,7 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  &:hover,
-  &:focus {
+  &:hover {
     opacity: 0.7;
   }
 
@@ -68,7 +88,6 @@
   }
 
   &:focus-visible {
-    opacity: 0.7;
     outline: 2px solid variables.$pink;
     outline-offset: 4px;
   }

@@ -3,6 +3,7 @@
 @use "./global/base.scss";
 
 /* blocks */
+@use "./blocks/add-photo.scss";
 @use "./blocks/announce.scss";
 @use "./blocks/apps.scss";
 @use "./blocks/button.scss";
@@ -14,6 +15,8 @@
 @use "./blocks/header.scss";
 @use "./blocks/page-main.scss";
 @use "./blocks/page.scss";
+@use "./blocks/photo.scss";
+@use "./blocks/photos.scss";
 @use "./blocks/review.scss";
 @use "./blocks/reviews.scss";
 @use "./blocks/social.scss";

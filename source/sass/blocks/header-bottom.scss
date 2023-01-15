@@ -5,18 +5,49 @@
   display: flex;
   flex-direction: column;
 
+  @media (max-width: variables.$mobile-width-only) {
+    padding: 28px+variables.$header-height-mobile 50px 77px;
+  }
+
   @media (min-width: variables.$tablet-width) {
-    position: relative;
-    padding-top: variables.$header-height-tablet+80px;
-    padding-bottom: 82px;
+    padding: 66px+variables.$header-height-tablet 50px 128px;
 
     @include base.container-tablet;
   }
 
   @media (min-width: variables.$desktop-width) {
-    padding: variables.$header-height-desktop+81px 130px 94px 110px;
+    padding: 60px+variables.$header-height-desktop 130px 88px;
 
     @include base.container-desktop;
+  }
+
+  &--index {
+    @media (max-width: variables.$mobile-width-only) {
+      padding: 0;
+    }
+
+    @media (min-width: variables.$tablet-width) {
+      position: relative;
+      padding: variables.$header-height-tablet+80px 0 82px;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      padding: variables.$header-height-desktop+81px 130px 98px 110px;
+    }
+  }
+}
+
+.header-bottom__title {
+  margin: 0;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+  color: variables.$white--lighten;
+
+  @media (min-width: variables.$tablet-width) {
+    font-size: 50px;
+    line-height: 68px;
   }
 }
 
@@ -24,10 +55,10 @@
   @media (max-width: variables.$mobile-width-only) {
     padding-top: variables.$header-height-mobile;
     background-color: variables.$blue--dark;
-    background-image: image-set(url("../img/index/back-mobile@2x.webp") 2x,
-        url("../img/index/back-mobile.webp") 1x,
-        url("../img/index/back-mobile@2x.jpg") 2x,
-        url("../img/index/back-mobile.jpg") 1x);
+    background-image: image-set(url("../img/header/back-mobile@2x.webp") 2x,
+        url("../img/header/back-mobile.webp") 1x,
+        url("../img/header/back-mobile@2x.jpg") 2x,
+        url("../img/header/back-mobile.jpg") 1x);
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;

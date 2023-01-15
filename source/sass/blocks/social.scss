@@ -42,8 +42,7 @@
     background-size: 15px 13px;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     border-color: variables.$blue--darken;
   }
 
@@ -52,7 +51,6 @@
   }
 
   &:focus-visible {
-    border-color: variables.$blue--darken;
     outline: 2px solid variables.$pink;
     outline-offset: 4px;
   }

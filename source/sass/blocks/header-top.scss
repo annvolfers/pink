@@ -55,7 +55,7 @@
 }
 
 .header-top__logo-link {
-  padding: 23px 20px 25px;
+  padding: 22px 20px 14px;
 
   &:focus-visible {
     outline: 2px solid variables.$pink;
@@ -67,7 +67,7 @@
   }
 
   @media (min-width: variables.$tablet-width) {
-    padding: 27px 20px 42px;
+    padding: 27px 20px 36px;
   }
 
   @media (min-width: variables.$desktop-width) {
@@ -165,28 +165,28 @@
     border-radius: 1px;
     background-color: variables.$white--lighten;
     transform: translateX(-50%) translateY(-50%);
-    box-shadow: 0 8px 0 0 variables.$white--lighten,
-      0 -8px 0 0 variables.$white--lighten;
+    box-shadow: 0 10px 0 0 variables.$white--lighten,
+      0 -10px 0 0 variables.$white--lighten;
   }
 }
 
 .header-top__nav--mobile-menu-closed .header-top__toggle:hover::before,
 .header-top__nav--mobile-menu-closed .header-top__toggle:focus::before {
   background-color: variables.$pink;
-  box-shadow: 0 8px 0 0 variables.$pink,
-    0 -8px 0 0 variables.$pink;
+  box-shadow: 0 10px 0 0 variables.$pink,
+    0 -10px 0 0 variables.$pink;
 }
 
 .header-top__nav--mobile-menu-closed .header-top__toggle:focus:hover:not(:active)::before {
   background-color: variables.$white--lighten;
-  box-shadow: 0 8px 0 0 variables.$white--lighten,
-    0 -8px 0 0 variables.$white--lighten;
+  box-shadow: 0 10px 0 0 variables.$white--lighten,
+    0 -10px 0 0 variables.$white--lighten;
 }
 
 .header-top__nav--mobile-menu-closed .header-top__toggle:focus-visible::before {
   background-color: variables.$pink;
-  box-shadow: 0 8px 0 0 variables.$pink,
-    0 -8px 0 0 variables.$pink;
+  box-shadow: 0 10px 0 0 variables.$pink,
+    0 -10px 0 0 variables.$pink;
 }
 
 .header-top__nav--mobile-menu-opened .header-top__toggle {
@@ -292,23 +292,18 @@
         content: "";
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: 7px;
         left: 0;
         height: 2px;
         background-color: variables.$white--lighten;
       }
 
-      &:hover::after,
-      &:focus::after {
+      &:hover::after {
         background-color: variables.$pink;
       }
 
-      &:focus:hover:not(:active) {
+      &:focus:hover:not(:active)::after {
         background-color: variables.$white--lighten;
-      }
-
-      &:focus-visible::after {
-        background-color: variables.$pink;
       }
 
       &:active::after {
@@ -317,8 +312,7 @@
     }
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: variables.$pink;
   }
 
@@ -327,7 +321,6 @@
   }
 
   &:focus-visible {
-    color: variables.$pink;
     outline: 2px solid variables.$pink;
     outline-offset: 4px;
   }

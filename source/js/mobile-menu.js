@@ -7,8 +7,10 @@ headerTopToggle.addEventListener('click', () => {
   if (headerTopNav.classList.contains('header-top__nav--mobile-menu-closed')) {
     headerTopNav.classList.remove('header-top__nav--mobile-menu-closed');
     headerTopNav.classList.add('header-top__nav--mobile-menu-opened');
+    headerTopToggle.querySelector('span').textContent = 'Закрыть меню.';
   } else {
     headerTopNav.classList.remove('header-top__nav--mobile-menu-opened');
     headerTopNav.classList.add('header-top__nav--mobile-menu-closed');
+    headerTopToggle.querySelector('span').textContent = 'Открыть меню.';
   }
 });

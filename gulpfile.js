@@ -11,7 +11,8 @@ import rename from 'gulp-rename';
 import sass from 'gulp-dart-sass';
 import squoosh from 'gulp-libsquoosh';
 import svgo from 'gulp-svgmin';
-import svgstore from 'gulp-svgstore';
+import svgoConfig from './svgo.config.js';
+import { stacksvg } from 'gulp-stacksvg';
 import terser from 'gulp-terser';
 import { deleteAsync } from 'del';
 import { htmlValidator } from 'gulp-w3c-html-validator';
@@ -70,16 +71,14 @@ function createWebp() {
 
 function optimizeVector() {
   return gulp.src(['source/img/**/*.svg', '!source/img/sprite/*.svg'])
-    .pipe(svgo())
+    .pipe(svgo(svgoConfig))
     .pipe(gulp.dest('build/img'));
 }
 
 function createSprite() {
   return gulp.src('source/img/sprite/**/*.svg')
-    .pipe(svgo())
-    .pipe(svgstore({
-      inlineSvg: true
-    }))
+    .pipe(svgo(svgoConfig))
+    .pipe(stacksvg())
     .pipe(rename('sprite.svg'))
     .pipe(gulp.dest('build/img'));
 }
@@ -116,7 +115,7 @@ function watchFiles() {
   gulp.watch('source/sass/**/*.scss', gulp.series(processStyles));
   gulp.watch('source/js/**/*.js', gulp.series(processScripts));
   gulp.watch('source/*.html', gulp.series(processMarkup, lintBem, validateMarkup, reloadServer));
-  gulp.watch('source/img/**/*.{jpg,png,svg}', gulp.series(optimizeImages, createWebp, optimizeVector, reloadServer));//?
+  gulp.watch('source/img/**/*.{jpg,png,svg}', gulp.series(optimizeImages, createWebp, optimizeVector, reloadServer));
   gulp.watch('source/img/sprite/**/*.svg', gulp.series(createSprite, reloadServer));
 }
 

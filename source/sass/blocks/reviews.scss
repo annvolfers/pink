@@ -49,12 +49,18 @@
   margin-top: 44px;
   padding: 0;
   background-color: transparent;
-  background-image: url("../img/index/slider-arrow.svg");
-  background-repeat: no-repeat;
-  background-position: center;
   border: none;
-  opacity: 0.3;
   cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 41px;
+    margin: auto;
+    mask-image: url("../img/sprite.svg#slider-arrow");
+    background-color: rgba(variables.$blue--darken, 0.3);
+  }
 
   &--prev {
     order: -1;
@@ -65,28 +71,35 @@
     transform: rotate(180deg);
   }
 
-  &:hover,
-  &:focus {
-    opacity: 0.6;
+  &:hover {
+    &::before {
+      background-color: rgba(variables.$blue--darken, 0.6);
+    }
   }
 
   &:focus:hover:not(:active) {
-    opacity: 0.3;
+    &::before {
+      background-color: rgba(variables.$blue--darken, 0.3);
+    }
   }
 
   &:focus-visible {
-    opacity: 0.6;
     outline: 2px solid variables.$pink;
     outline-offset: 4px;
   }
 
   &:active {
-    opacity: 0.1;
+    &::before {
+      background-color: rgba(variables.$blue--darken, 0.1);
+    }
   }
 
   &:disabled {
-    opacity: 0.1;
     pointer-events: none;
+
+    &::before {
+      background-color: rgba(variables.$blue--darken, 0.1);
+    }
   }
 
   @media (min-width: variables.$desktop-width) {
