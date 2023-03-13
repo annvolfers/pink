@@ -23,12 +23,12 @@
   background-color: rgba(variables.$black, 50%);
 
   &--mobile-menu-opened {
-    background-color: variables.$blue--darken;
+    background-color: variables.$gray;
   }
 
   &--nojs {
     position: static;
-    background-color: variables.$blue--darken;
+    background-color: variables.$gray;
   }
 
   @media (min-width: variables.$desktop-width) {

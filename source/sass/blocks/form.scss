@@ -1,0 +1,154 @@
+@use "./global/variables.scss";
+@use "./global/base.scss";
+
+.form {
+  display: grid;
+
+  @media (min-width: variables.$tablet-width) {
+    gap: 58px;
+    padding: 0 20px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    grid-template-areas: "name app"
+      "contacts contacts"
+      "achievements achievements"
+      "comment comment"
+      "footer footer";
+    grid-template-columns: repeat(2, 1fr);
+    gap: 59px 70px;
+    padding: 0 130px;
+  }
+}
+
+.form__group {
+  &--name {
+    @media (max-width: variables.$mobile-width-only) {
+      order: 1;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      grid-area: name;
+    }
+  }
+
+  &--app {
+    @media (max-width: variables.$mobile-width-only) {
+      order: 4;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      grid-area: app;
+    }
+  }
+
+  &--contacts {
+    @media (max-width: variables.$mobile-width-only) {
+      order: 3;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      grid-area: contacts;
+    }
+  }
+
+  &--achievements {
+    @media (max-width: variables.$mobile-width-only) {
+      order: 2;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      grid-area: achievements;
+    }
+  }
+
+  &--comment {
+    @media (max-width: variables.$mobile-width-only) {
+      order: 5;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      grid-area: comment;
+    }
+  }
+}
+
+.form__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 5px 20px 2px;
+
+  @media (max-width: variables.$mobile-width-only) {
+    order: 6;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    order: 4;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 9px 0 48px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    grid-area: footer;
+    padding: 6px 0 1px;
+  }
+}
+
+.form__button {
+  padding: 16px 20px 17px;
+  max-width: 400px;
+  font-size: 18px;
+  line-height: 30px;
+  color: variables.$white--lighten;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: variables.$green--light;
+  border-radius: 3px;
+  border: none;
+
+  @media (max-width: variables.$mobile-width-only) {
+    width: 100%;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    flex-grow: 1;
+    max-width: 300px;
+  }
+
+  &:hover {
+    background-color: variables.$green;
+  }
+
+  &:focus:hover:not(:active) {
+    background-color: variables.$green--light;
+  }
+
+  &:active {
+    color: rgba(variables.$white--lighten, 0.3);
+  }
+
+  &:disabled {
+    background-color: variables.$white--dark;
+    pointer-events: none;
+  }
+}
+
+.form__legend {
+  padding: 0;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.form__sign {
+  color: variables.$pink;
+}
+
+.form__text-snippet {
+  @media (max-width: variables.$tablet-width-only) {
+    @include base.visually-hidden;
+  }
+}

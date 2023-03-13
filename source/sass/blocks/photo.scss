@@ -135,20 +135,20 @@
 .photo__author {
   font-style: normal;
   font-weight: 700;
-  color: variables.$blue--darken;
+  color: variables.$gray;
 }
 
 .photo__time {
   font-weight: 300;
   font-size: 12px;
   text-transform: uppercase;
-  color: variables.$blue--darken;
+  color: variables.$gray;
 }
 
 .photo__description {
   margin: 0;
   margin-bottom: 9px;
-  color: variables.$blue--darken;
+  color: variables.$gray;
 
   @media (max-width: variables.$mobile-width-only) {
     padding-left: 7px;

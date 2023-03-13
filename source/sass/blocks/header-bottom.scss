@@ -6,16 +6,19 @@
   flex-direction: column;
 
   @media (max-width: variables.$mobile-width-only) {
-    padding: 28px+variables.$header-height-mobile 50px 77px;
+    min-height: 99px;
+    padding: 28px+variables.$header-height-mobile 46px 44px;
   }
 
   @media (min-width: variables.$tablet-width) {
-    padding: 66px+variables.$header-height-tablet 50px 128px;
+    min-height: 440px;
+    padding: 66px+variables.$header-height-tablet 50px 60px;
 
     @include base.container-tablet;
   }
 
   @media (min-width: variables.$desktop-width) {
+    min-height: 394px;
     padding: 60px+variables.$header-height-desktop 130px 88px;
 
     @include base.container-desktop;
@@ -54,7 +57,7 @@
 .header-bottom__collage-wrapper {
   @media (max-width: variables.$mobile-width-only) {
     padding-top: variables.$header-height-mobile;
-    background-color: variables.$blue--dark;
+    background-color: variables.$gray--dark;
     background-image: image-set(url("../img/header/back-mobile@2x.webp") 2x,
         url("../img/header/back-mobile.webp") 1x,
         url("../img/header/back-mobile@2x.jpg") 2x,

@@ -1,0 +1,148 @@
+@use "./global/variables.scss";
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(variables.$gray--dark, 0.7);
+  display: none;
+  overflow-y: auto;
+  cursor: pointer;
+
+  &--open {
+    display: flex;
+  }
+}
+
+.modal__content {
+  margin: auto;
+  padding-top: 41px;
+  box-sizing: border-box;
+  background-color: variables.$white--lighten;
+  box-shadow: 0 7px 15px rgba(0, 1, 1, 0.15);
+  border-radius: 5px;
+  cursor: default;
+
+  @media (min-width: variables.$tablet-width) {
+    max-width: 460px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    max-width: 780px;
+  }
+
+  &--open {
+    display: block;
+  }
+}
+
+.modal__title {
+  margin: 0;
+  margin-bottom: 22px;
+  padding: 0 30px;
+  font-size: 30px;
+  line-height: 40px;
+  text-align: center;
+  color: variables.$black;
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 0 67px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 0 183px;
+  }
+}
+
+.modal__text {
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0 30px;
+  font-size: 18px;
+  text-align: center;
+  color: variables.$gray;
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 0 67px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    margin-bottom: 62px;
+    padding: 0 183px;
+  }
+}
+
+.modal--form-success .modal__text {
+  @media (min-width: variables.$desktop-width) {
+    margin-bottom: 39px;
+  }
+}
+
+.modal__button-wrapper {
+  border-radius: 0 0 5px 5px;
+  background-color: variables.$white--light;
+}
+
+.modal--form-validate-error .modal__button-wrapper,
+.modal--form-send-error .modal__button-wrapper {
+  padding: 2px 30px 51px;
+
+  @media (max-width: variables.$tablet-width-only) {
+    background-color: unset;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 2px 81px 51px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 50px 240px 50px;
+  }
+}
+
+.modal--form-success .modal__button-wrapper {
+  padding: 50px 30px 48px;
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 50px 81px 48px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 50px 159px 50px;
+  }
+}
+
+.modal__button {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 17px;
+  font-size: 18px;
+  line-height: 30px;
+  color: variables.$white--lighten;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: variables.$green--light;
+  border: none;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: variables.$green;
+  }
+
+  &:focus:hover:not(:active) {
+    background-color: variables.$green--light;
+  }
+
+  &:active {
+    color: rgba(variables.$white--lighten, 0.3);
+  }
+}
+
+.modal--form-success .modal__button {
+  @media (min-width: variables.$desktop-width) {
+    max-width: 500px;
+  }
+}

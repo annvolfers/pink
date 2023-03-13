@@ -8,7 +8,7 @@
   font-size: 14px;
   line-height: 30px;
   text-align: center;
-  color: variables.$blue--darken;
+  color: variables.$gray;
 
   @media (min-width: variables.$tablet-width) {
     font-size: 18px;
@@ -134,7 +134,7 @@
       left: -20px;
       right: -20px;
       height: 1px;
-      background-color: variables.$blue--darken;
+      background-color: variables.$gray;
       opacity: 0.1;
     }
   }
@@ -167,7 +167,7 @@
     justify-content: center;
     min-height: 71px;
     padding-right: 16px;
-    border-bottom: 1px solid rgba(variables.$blue--darken, 0.1);
+    border-bottom: 1px solid rgba(variables.$gray, 0.1);
   }
 
   @media (min-width: variables.$desktop-width) {
@@ -188,7 +188,7 @@
   &::before {
     content: "";
     display: block;
-    background-color: variables.$blue--darken;
+    background-color: variables.$gray;
     opacity: 0.3;
 
     @media (min-width: variables.$tablet-width) {
@@ -300,12 +300,12 @@
 
   &::-webkit-slider-runnable-track {
     height: 2px;
-    background-color: variables.$blue--darken;
+    background-color: variables.$gray;
   }
 
   &::-moz-range-track {
     height: 2px;
-    background-color: variables.$blue--darken;
+    background-color: variables.$gray;
   }
 
   &::-webkit-slider-thumb {
@@ -403,23 +403,23 @@
   }
 
   &--reset {
-    color: rgba(variables.$blue--darken, 0.1);
-    border: 3px solid rgba(variables.$blue--darken, 0.1);
+    color: rgba(variables.$gray, 0.1);
+    border: 3px solid rgba(variables.$gray, 0.1);
 
     &:hover {
-      color: rgba(variables.$blue--darken, 0.3);
-      border-color: rgba(variables.$blue--darken, 0.3);
+      color: rgba(variables.$gray, 0.3);
+      border-color: rgba(variables.$gray, 0.3);
     }
 
     &:focus:hover:not(:active) {
-      color: rgba(variables.$blue--darken, 0.1);
-      border-color: rgba(variables.$blue--darken, 0.1);
+      color: rgba(variables.$gray, 0.1);
+      border-color: rgba(variables.$gray, 0.1);
     }
 
     &:active {
       color: rgba(variables.$white--lighten, 0.3);
-      background-color: rgba(variables.$blue--darken, 0.3);
-      border-color: rgba(variables.$blue--darken, 0);
+      background-color: rgba(variables.$gray, 0.3);
+      border-color: rgba(variables.$gray, 0);
     }
 
     @media (min-width: variables.$tablet-width) {

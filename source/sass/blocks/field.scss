@@ -1,0 +1,129 @@
+@use "./global/variables.scss";
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+
+  @media (min-width: variables.$tablet-width) {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &[class*="--contacts-"] {
+    @media (min-width: variables.$tablet-width) {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      gap: 10px;
+
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 59px;
+        height: 58px;
+        display: block;
+        background-color: variables.$white--dark;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &--contacts-phone {
+    @media (min-width: variables.$tablet-width) {
+      &::after {
+        background-image: url("../img/sprite.svg#phone");
+        background-size: 20px 19px;
+      }
+    }
+  }
+
+  &--contacts-email {
+    @media (min-width: variables.$tablet-width) {
+      &::after {
+        background-image: url("../img/sprite.svg#mail");
+        background-size: 18px 13px;
+      }
+    }
+  }
+}
+
+.field__label {
+  line-height: 30px;
+  color: variables.$pink;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @media (max-width: variables.$mobile-width-only) {
+    padding-left: 23px;
+  }
+}
+
+.field[class*="--contacts-"] .field__label {
+  @media (min-width: variables.$tablet-width) {
+    padding-left: 19px;
+  }
+}
+
+.field__input {
+  padding: 14px 20px;
+  box-sizing: border-box;
+  border: 2px solid variables.$white--dark;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 30px;
+  color: variables.$gray;
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  &--textarea {
+    height: 201px;
+    resize: none;
+
+    @media (min-width: variables.$tablet-width) {
+      height: 193px;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      height: 128px;
+    }
+  }
+
+  &:hover {
+    border-color: variables.$gray;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: variables.$pink;
+  }
+
+  &:active {
+    border-color: variables.$pink;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    flex-grow: 1;
+  }
+}
+
+.field[class*="--contacts-"] .field__input {
+  @media (min-width: variables.$tablet-width) {
+    padding-right: 80px;
+  }
+}
+
+.field--error .field__input {
+  border-color: variables.$red;
+  background-color: rgba(variables.$red, 0.2);
+}

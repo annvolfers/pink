@@ -28,3 +28,13 @@
     @include base.container-desktop;
   }
 }
+
+.page-main__contest {
+  @media (min-width: variables.$tablet-width) {
+    @include base.container-tablet;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    @include base.container-desktop;
+  }
+}

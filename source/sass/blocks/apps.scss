@@ -6,14 +6,14 @@
   padding: 28px 20px 31px;
 
   @media (max-width: variables.$mobile-width-only) {
-    background-color: variables.$blue--dark;
+    background-color: variables.$gray--dark;
   }
 
   @media (min-width: variables.$tablet-width) {
     position: relative;
     z-index: 1;
     max-width: 300px;
-    padding: 28px 22px 31px;
+    padding: 30px 22px 29px;
   }
 }
 
@@ -31,7 +31,6 @@
     background-color: variables.$white--lighten;
   }
 
-  //стили для тач-устройств после клика
   &:focus:hover:not(:active) {
     color: variables.$white--lighten;
     background-color: transparent;
@@ -97,17 +96,17 @@
   }
 
   &--apple {
-    background-image: url("../img/index/apple-logo.svg");
+    background-image: url("../img/sprite.svg#apple-logo");
     background-size: 47px 56px;
   }
 
   &--android {
-    background-image: url("../img/index/android-logo.svg");
+    background-image: url("../img/sprite.svg#android-logo");
     background-size: 43px 47px;
   }
 
   &--microsoft {
-    background-image: url("../img/index/microsoft-logo.svg");
+    background-image: url("../img/sprite.svg#microsoft-logo");
     background-size: 44px 41px;
     background-position-y: 13px;
   }

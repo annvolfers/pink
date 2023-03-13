@@ -86,7 +86,7 @@
   align-items: center;
   gap: 15px;
   line-height: 18px;
-  color: variables.$blue--darken;
+  color: variables.$gray;
   text-decoration: none;
 
   &:focus-visible {
@@ -107,7 +107,7 @@
 }
 
 .footer__copyright-link:hover .footer__copyright-logo {
-  color: variables.$blue--darken;
+  color: variables.$gray;
 }
 
 .footer__copyright-link:focus:hover:not(:active) .footer__copyright-logo {

@@ -25,7 +25,7 @@
     width: 6px;
     height: 6px;
     margin: auto;
-    background-color: variables.$blue--darken;
+    background-color: variables.$gray;
     border-radius: 50%;
     opacity: 0.3;
   }
@@ -57,7 +57,7 @@
 
     &::before {
       background-color: variables.$white--lighten;
-      border: 3px solid variables.$blue--darken;
+      border: 3px solid variables.$gray;
       opacity: 1;
     }
   }

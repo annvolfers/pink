@@ -51,7 +51,7 @@
     display: block;
     font-style: normal;
     line-height: 30px;
-    color: variables.$blue--darken;
+    color: variables.$gray;
     text-align: center;
   }
 
@@ -63,7 +63,7 @@
 .review__text {
   margin: 0;
   line-height: 30px;
-  color: variables.$blue--darken;
+  color: variables.$gray;
   text-align: center;
 
   @media (min-width: variables.$tablet-width) {

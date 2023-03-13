@@ -1,0 +1,32 @@
+@use "./global/variables.scss";
+@use "./global/base.scss";
+
+.contest__description {
+  margin: 0;
+  padding: 44px 20px 35px;
+  line-height: 30px;
+  text-align: center;
+  color: variables.$gray;
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 92px 80px 72px;
+    font-size: 18px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 92px 220px 72px;
+    font-size: 18px;
+  }
+}
+
+.contest__description br {
+  @media (min-width: variables.$desktop-width) {
+    display: none;
+  }
+}
+
+.contest__text-snippet {
+  @media (max-width: variables.$mobile-width-only) {
+    @include base.visually-hidden;
+  }
+}

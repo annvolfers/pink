@@ -1,0 +1,111 @@
+@use "./global/variables.scss";
+
+.control {
+  display: flex;
+  align-items: center;
+
+  &--checkbox {
+    gap: 20px;
+  }
+
+  &--radio {
+    gap: 29px;
+
+    @media (min-width: variables.$tablet-width) {
+      gap: 20px;
+    }
+  }
+}
+
+.control__input {
+  position: relative;
+  flex-shrink: 0;
+  margin: 0;
+  appearance: none;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: variables.$white--lighten;
+    border: 2px solid variables.$white--dark;
+    border-radius: 1px;
+  }
+
+  &:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background-color: variables.$pink;
+    transform: translate(-50%, -50%);
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    &::before {
+      border-color: variables.$gray;
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+.control--checkbox .control__input {
+  width: 39px;
+  height: 39px;
+
+  &:checked::after {
+    width: 22px;
+    height: 16px;
+    mask-image: url("../img/sprite.svg#tick");
+  }
+}
+
+.control--radio .control__input {
+  width: 41px;
+  height: 41px;
+
+  &::before {
+    border-radius: 50%;
+  }
+
+  &:checked::after {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+}
+
+.control:hover .control__input:not(:disabled) {
+  &::before {
+    border-color: variables.$gray;
+  }
+}
+
+.control:active .control__input:not(:disabled) {
+  &::before {
+    border-color: variables.$pink;
+  }
+}
+
+.control__label {
+  font-size: 18px;
+  line-height: 30px;
+  color: variables.$gray;
+  cursor: pointer;
+}
+
+.control__input:disabled + .control__label {
+  pointer-events: none;
+  opacity: 0.4;
+}

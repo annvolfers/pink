@@ -13,6 +13,10 @@
   line-height: 24px;
   color: variables.$black;
   background-color: variables.$white--lighten;
+
+  &--do-not-scroll {
+    overflow-y: hidden;
+  }
 }
 
 .page__main {

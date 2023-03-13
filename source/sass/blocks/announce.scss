@@ -10,7 +10,7 @@
 .announce__wrapper {
   min-height: 330px;
   padding: 96px 20px 22px 330px;
-  background-image: url("../img/index/timer.svg");
+  background-image: url("../img/sprite.svg#timer");
   background-repeat: no-repeat;
   background-size: 238px 276px;
   background-position: 20px 54px;
@@ -43,7 +43,7 @@
 .announce__text {
   margin: 0;
   margin-bottom: 10px;
-  color: variables.$blue--darken;
+  color: variables.$gray;
 
   @media (min-width: variables.$desktop-width) {
     margin-bottom: 30px;
@@ -56,7 +56,7 @@
   color: variables.$pink;
 
   &:hover {
-    color: variables.$blue--darken;
+    color: variables.$gray;
     text-decoration: none;
   }
 

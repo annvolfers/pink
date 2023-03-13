@@ -22,32 +22,32 @@
   display: block;
   width: 48px;
   height: 48px;
-  border: 3px solid rgba(variables.$blue--darken, 0.1);
+  border: 3px solid rgba(variables.$gray, 0.1);
   border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center;
 
   &--twitter {
-    background-image: url("../img/social/twitter.svg");
+    background-image: url("../img/sprite.svg#twitter");
     background-size: 18px 14px;
   }
 
   &--facebook {
-    background-image: url("../img/social/facebook.svg");
+    background-image: url("../img/sprite.svg#facebook");
     background-size: 9px 18px;
   }
 
   &--youtube {
-    background-image: url("../img/social/youtube.svg");
+    background-image: url("../img/sprite.svg#youtube");
     background-size: 15px 13px;
   }
 
   &:hover {
-    border-color: variables.$blue--darken;
+    border-color: variables.$gray;
   }
 
   &:focus:hover:not(:active) {
-    border-color: rgba(variables.$blue--darken, 0.1);
+    border-color: rgba(variables.$gray, 0.1);
   }
 
   &:focus-visible {

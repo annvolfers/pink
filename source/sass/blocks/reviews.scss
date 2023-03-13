@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     padding: 165px 116px 2px;
-    background-image: url("../img/index/quotes.svg");
+    background-image: url("../img/sprite.svg#quotes");
     background-repeat: no-repeat;
     background-size: 79px 63px;
     background-position: 50% 72px;
@@ -59,7 +59,7 @@
     height: 41px;
     margin: auto;
     mask-image: url("../img/sprite.svg#slider-arrow");
-    background-color: rgba(variables.$blue--darken, 0.3);
+    background-color: rgba(variables.$gray, 0.3);
   }
 
   &--prev {
@@ -73,13 +73,13 @@
 
   &:hover {
     &::before {
-      background-color: rgba(variables.$blue--darken, 0.6);
+      background-color: rgba(variables.$gray, 0.6);
     }
   }
 
   &:focus:hover:not(:active) {
     &::before {
-      background-color: rgba(variables.$blue--darken, 0.3);
+      background-color: rgba(variables.$gray, 0.3);
     }
   }
 
@@ -90,7 +90,7 @@
 
   &:active {
     &::before {
-      background-color: rgba(variables.$blue--darken, 0.1);
+      background-color: rgba(variables.$gray, 0.1);
     }
   }
 
@@ -98,7 +98,7 @@
     pointer-events: none;
 
     &::before {
-      background-color: rgba(variables.$blue--darken, 0.1);
+      background-color: rgba(variables.$gray, 0.1);
     }
   }
 

@@ -1,0 +1,191 @@
+@use "./global/variables.scss";
+@use "./global/base.scss";
+
+.group {
+  display: grid;
+  gap: 38px;
+  margin: 0;
+  padding: 39px 20px 43px;
+  border: 2px solid variables.$white--dark;
+  border-radius: 3px;
+
+  @media (max-width: variables.$mobile-width-only) {
+    border: none;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 0;
+  }
+
+  &--name {
+    padding-top: 0;
+    border: none;
+
+    @media (min-width: variables.$desktop-width) {
+      padding-top: 13px;
+    }
+  }
+
+  &--app {
+    gap: 34px;
+    padding-bottom: 40px;
+
+    @media (max-width: variables.$mobile-width-only) {
+      background-color: variables.$white--light;
+    }
+
+    @media (min-width: variables.$tablet-width) {
+      padding: 44px 58px 52px;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      padding: 43px 0 52px;
+    }
+  }
+
+  &--contacts {
+    padding-top: 32px;
+
+    @media (min-width: variables.$tablet-width) {
+      padding: 37px 58px 28px;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      padding: 33px 58px 14px;
+    }
+  }
+
+  &--achievements {
+    padding-bottom: 42px;
+
+    @media (max-width: variables.$mobile-width-only) {
+      background-color: variables.$white--light;
+    }
+
+    @media (min-width: variables.$tablet-width) {
+      padding: 43px 58px 49px;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      padding-bottom: 55px;
+    }
+  }
+
+  &--comment {
+    gap: 15px;
+
+    @media (min-width: variables.$tablet-width) {
+      padding: 37px 58px 50px;
+    }
+
+    @media (min-width: variables.$desktop-width) {
+      padding: 32px 58px 43px;
+    }
+  }
+}
+
+.group__list {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media (max-width: variables.$mobile-width-only) {
+    clear: both;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    gap: 53px;
+  }
+}
+
+.group--app .group__list {
+  justify-items: start;
+  gap: 34px;
+
+  @media (min-width: variables.$desktop-width) {
+    padding: 0 71px;
+  }
+}
+
+.group--contacts .group__list {
+  @media (min-width: variables.$tablet-width) {
+    gap: 29px;
+  }
+
+  @media (min-width: variables.$desktop-width) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px;
+  }
+}
+
+.group--achievements .group__list {
+  justify-items: start;
+  gap: 43px;
+
+  @media (min-width: variables.$desktop-width) {
+    grid-template-areas: "achievement-1 achievement-3 achievement-5"
+      "achievement-2 achievement-4 achievement-6";
+    grid-template-columns: repeat(3, auto);
+    gap: 42px 56px;
+  }
+}
+
+.group--achievements .group__item:nth-child(1) {
+  @media (min-width: variables.$desktop-width) {
+    grid-area: achievement-1;
+  }
+}
+
+.group--achievements .group__item:nth-child(2) {
+  @media (min-width: variables.$desktop-width) {
+    grid-area: achievement-2;
+  }
+}
+
+.group--achievements .group__item:nth-child(3) {
+  @media (min-width: variables.$desktop-width) {
+    grid-area: achievement-3;
+  }
+}
+
+.group--achievements .group__item:nth-child(4) {
+  @media (min-width: variables.$desktop-width) {
+    grid-area: achievement-4;
+  }
+}
+
+.group--achievements .group__item:nth-child(5) {
+  @media (min-width: variables.$desktop-width) {
+    grid-area: achievement-5;
+  }
+}
+
+.group--achievements .group__item:nth-child(6) {
+  @media (min-width: variables.$desktop-width) {
+    grid-area: achievement-6;
+  }
+}
+
+.group__title {
+  padding: 0 20px;
+  line-height: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  color: variables.$pink;
+
+  @media (max-width: variables.$mobile-width-only) {
+    float: left;
+  }
+
+  @media (min-width: variables.$tablet-width) {
+    padding: 0 30px;
+  }
+}
+
+.group--contacts .group__title {
+  @media (max-width: variables.$mobile-width-only) {
+    @include base.visually-hidden;
+  }
+}
