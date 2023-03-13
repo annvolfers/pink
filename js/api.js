@@ -1,0 +1,1 @@
+function sendData(t,e,a){fetch("https://echo.htmlacademy.ru",{method:"POST",body:a}).then((a=>{a.ok?t():e()})).catch((()=>e()))}export{sendData};

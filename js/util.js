@@ -1,0 +1,1 @@
+const isOutsideClick=(s,e)=>!s.target.closest(e),isEscapeKey=s=>"Escape"===s.key;export{isOutsideClick,isEscapeKey};
