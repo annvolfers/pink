@@ -2,17 +2,13 @@ import { sendData } from './api.js';
 import { Modal } from './modal.js';
 
 const form = document.querySelector('.form');
-const pristine = new Pristine(form, {
-  classTo: 'field',
-  errorClass: 'field--error'
-});
-
-function resetForm() {
-  form.reset();
-  pristine.reset();
-}
 
 if (form) {
+  const pristine = new Pristine(form, {
+    classTo: 'field',
+    errorClass: 'field--error'
+  });
+
   const fieldsToValidate = form.querySelectorAll('.field__input');
   const submitButton = form.querySelector('.form__button');
 
@@ -30,7 +26,9 @@ if (form) {
         () => {
           modalSuccess.openModal();
           submitButton.disabled = false;
-          resetForm();
+
+          form.reset();
+          pristine.reset();
         },
         () => {
           modalSendError.openModal();
